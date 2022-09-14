@@ -3,7 +3,7 @@ close all
 clear
 
 den=conv([1 1 0],[1 8]);
-h=tf(1,den);
+h=tf([1 0.5],den);
 step(h)
 
 figure
