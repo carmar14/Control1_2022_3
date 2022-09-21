@@ -43,11 +43,11 @@ Kv=5;
 
 %------G_c(s)=(s+z)/(s+p)-----
 razon= 10 ;%Kv/Kv_a;
-p=0.005;
+p=0.001; %0.005
 z=razon*p; %0.05;
 
 cond_ang= rad2deg(angle((s1+z)/(s1+p)))
-atand((0.33-0.05)/0.586)-atand((0.33-0.005)/0.586)
+%atand((0.33-0.05)/0.586)-atand((0.33-0.005)/0.586)
 
 
 g_c = tf([1 z],[1 p]);
@@ -71,8 +71,8 @@ title('Mapa de polos y ceros con compensador')
 % determinar la ganancia K para ubicar los polos deseados en lazo cerrado
 % s1= -0.309+0.56*i;%0.332+0.466*i;
 % s2= -0.309+0.56*i;%0.332-0.466*i;
-s1= -0.332+0.466*i;
-s2= -0.332-0.466*i;
+s1= p1(2);%-0.308+0.566i;%p1(2);%-0.332+0.466*i;
+s2= p1(3);%-0.332-0.466*i;
 num = 1.06*(s1+z);
 den = s1*(s1+p)*(s1+1)*(s1+2);
 
@@ -103,8 +103,7 @@ pzmap(sis_r_c)
 
 %---------implementación de Gc con operacioneales----
 %Gc=K(s+z)/(s+p)
-z=0.05;
-p=0.005;
+
 C1=1000e-6;
 C2=C1;
 R1=1/(C1*z);
