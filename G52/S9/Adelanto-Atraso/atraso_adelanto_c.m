@@ -35,9 +35,8 @@ t2=90+atand(2/4.33);
 t1+t2
 angf=180-ang;%-180+t1+t2
 %---------encontrando el cero y el polo---
-phi = 90; %114.7966; %angulo del cero 
+phi = rad2deg(angle(s1+0.5));%110; %114.7966; %angulo del cero 
 theta = phi-angf; %angulo del polo para completar lo que falta
-
 if phi<=90
     x1=imag(s1)/tand(phi);
     x2=imag(s1)/tand(theta);
@@ -47,8 +46,7 @@ else
     x1=imag(s1)/tand(180-phi);
     x2=imag(s1)/tand(theta);
     z=abs(real(s1))-x1;
-    p=x2+abs(real(s1));
-    
+    p=x2+abs(real(s1));    
 end
 z1=z;
 p1=p;
@@ -59,14 +57,14 @@ p1=p;
 
 %---------econtrando K----
 num=4*(s1+z1);
-den=s1*(s1+5)*(s1+p1);
+den=s1*(s1+0.5)*(s1+p1);
 div=abs(num/den);
 K=1/div;
 
 
 %----------red de atraso----
 Kvd=80;
-razon=Kvd/(8*K);
+razon=Kvd/(8*K*z1/p1);
 p2=0.002;
 z2=p2*razon;%0.2; %0.2
 num=s1+z2;
