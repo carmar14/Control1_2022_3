@@ -35,7 +35,7 @@ t2=90+atand(2/4.33);
 t1+t2
 angf=180-ang;%-180+t1+t2
 %---------encontrando el cero y el polo---
-phi = 90; %angulo del cero
+phi = 90; %114.7966; %angulo del cero 
 theta = phi-angf; %angulo del polo para completar lo que falta
 
 if phi<=90
@@ -76,15 +76,15 @@ div2=abs(num/den); % verificamos que la magnitud sea
 %aprox 1.
 
 %verificamos angulo entre -5° y 0°
-
-
+ang2=rad2deg(angle((s1+z2)/(s1+p2)));
+%---------documento---
 % t4=90+atand((2.5-p2)/4.33);
 % phi2=90+atand((2.5-z2)/4.33);
 % phi2-t4
 
 %-----------controlador completo--
 
-g_c=K*tf([1 0.5],[1 5])*tf([1 0.2],[1 0.0125])
+g_c=K*tf([1 z1],[1 p1])*tf([1 z2],[1 p2]);%K*tf([1 0.5],[1 5])*tf([1 0.2],[1 0.0125])
 
 s_c=feedback(g_c*g,1);
 [p z] = pzmap(s_c)
@@ -98,8 +98,6 @@ pzmap(s_c)
 
 
 %-----------amplificadores operacionales
-z1=0.5;
-p1=5;
 
 C1=10e-6;
 C2=C1;

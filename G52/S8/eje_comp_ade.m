@@ -17,7 +17,7 @@ rlocus(g)
 
 %----------polos deseados-----------
 so=0.14;
-Ts=4;
+Ts=8;
 e=sqrt((log(so))^2/(pi^2+(log(so))^2));
 wn=4/(Ts*e);
 hd=tf(wn^2,[1 2*e*wn wn^2]);
@@ -36,7 +36,7 @@ s2=p(2);
 %----------Encontrando angulo faltante------
 ang = rad2deg(angle(1/(s1*(s1^2+3*s1+2))));
 angf= 180-ang;
-phi=110; %90 70 60 57.97
+phi=90; %90 70 60 57.97
 theta=phi-angf;
 %---------encontrando el cero y el polo---
 if phi<=90
