@@ -51,8 +51,8 @@ Ts=2*pi/ws;%pi/w;%0.5*2*pi/w; %nyquist
 Ts=1/50;%0.169/10; %empirico
 % Ts=0.169/10;
 % Ts=1/10;  %1/10 foh
-gc_d=c2d(g_c,Ts,'zoh');
-gp_d=c2d(g,Ts,'zoh');
+gc_d=c2d(g_c,Ts,'foh');
+gp_d=c2d(g,Ts,'foh');
 sis_ol_d=gc_d*gp_d;
 sis_cl_d=feedback(sis_ol_d,1);
 figure
