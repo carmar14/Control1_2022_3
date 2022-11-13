@@ -95,3 +95,4 @@ end
 
 hold on
 plot(t,y_k,'k')
+ylim([0,max(y_k)])
